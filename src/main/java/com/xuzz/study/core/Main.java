@@ -1,6 +1,9 @@
 package com.xuzz.study.core;
 
 import com.sun.deploy.util.StringUtils;
+import com.xuzz.study.algorithm.sorts.InsertSort;
+import com.xuzz.study.algorithm.sorts.QuickSort;
+import com.xuzz.study.algorithm.sorts.SelectSort;
 import com.xuzz.study.annotation.Apple;
 import com.xuzz.study.annotation.FruitInfoUtil;
 import com.xuzz.study.aop01.AopMath;
@@ -128,8 +131,15 @@ public class Main {
 //        t1.synWithLock();
 
 //        new EnumTest().Entry();
-        BigDecimal bg = new BigDecimal("-0.01");
-        System.out.print(bg.toPlainString());
+//        BigDecimal bg = new BigDecimal("-0.01");
+//        System.out.print(bg.toPlainString());
+
+//        MainSub1002.runWithWait();
+//        MainSub1002.runWithCondition();
+
+//        new QuickSort().run();
+//        new InsertSort().run();
+        new SelectSort().run();
     }
 
     public static long getDistanceDays(String str1, String str2) throws Exception{
