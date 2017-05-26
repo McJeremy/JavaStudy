@@ -10,6 +10,8 @@ import com.xuzz.study.aop01.AopMath;
 import com.xuzz.study.io.EnumTest;
 import com.xuzz.study.net.URLDecoderTest;
 import com.xuzz.study.nio.BasicBuffer;
+import com.xuzz.study.nio.netty.HelloClient;
+import com.xuzz.study.nio.netty.HelloServer;
 import com.xuzz.study.thread.*;
 import com.xuzz.study.util.BigMoney;
 import com.xuzz.study.util.EncryptUtil;
@@ -19,9 +21,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.FileOutputStream;
 import java.math.BigDecimal;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.math.RoundingMode;
+import java.text.*;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
@@ -139,9 +140,43 @@ public class Main {
 
 //        new QuickSort().run();
 //        new InsertSort().run();
-        new SelectSort().run();
+//        new SelectSort().run();
+
+       /*BigDecimal bg = new BigDecimal(Double.toString(2.455675));
+
+        BigDecimal bg1 = new BigDecimal(2.455675);
+        System.out.println(bg);
+        System.out.println(bg1);*/
+
+//       String d1="2016-12-31 20:20:00";
+//       String d2="2017-01-01 20:19:01";
+//
+//       System.out.println(compareDate(d1,d2));
+
+        new HelloServer().startListening();
+        new HelloClient().connect();
+
     }
 
+    public static int compareDate(String DATE1, String DATE2) {
+         DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+         try {
+                 Date dt1 = df.parse(DATE1);
+                 Date dt2 = df.parse(DATE2);
+                 if (dt1.getTime() > dt2.getTime()) {
+                         System.out.println("dt1 在dt2前");
+                         return 1;
+                     } else if (dt1.getTime() < dt2.getTime()) {
+                          System.out.println("dt1在dt2后");
+                          return -1;
+                      } else {
+                          return 0;
+                      }
+              } catch (Exception exception) {
+                  exception.printStackTrace();
+              }
+             return 0;
+         }
     public static long getDistanceDays(String str1, String str2) throws Exception{
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         Date one;
