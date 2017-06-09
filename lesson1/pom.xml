@@ -12,6 +12,23 @@
         <!-- jar 版本设置 -->
         <spring.version>4.2.4.RELEASE</spring.version>
     </properties>
+    <repositories>
+        <repository>
+            <id>nexusteam</id>
+            <name>TeamRelease</name>
+            <url>http://192.168.0.222:8081/nexus/content/repositories/releases/</url>
+        </repository>
+        <repository>
+            <id>nexusthird</id>
+            <name>ThirdRelease</name>
+            <url>http://192.168.0.222:8081/nexus/content/repositories/thirdparty/</url>
+        </repository>
+        <repository>
+            <id>nexussnap</id>
+            <name>TeamSnapshots</name>
+            <url>http://192.168.0.222:8081/nexus/content/repositories/snapshots/</url>
+        </repository>
+    </repositories>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -41,7 +58,28 @@
             <artifactId>netty-all</artifactId>
             <version>5.0.0.Alpha2</version>
         </dependency>
+        <dependency>
+            <groupId>com.hxtx</groupId>
+            <artifactId>huixiang-core</artifactId>
+            <version>3.0.0-SNAPSHOT</version>
+        </dependency>
 
+        <!--日志-->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.18</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.7</version>
+        </dependency>
 
     </dependencies>
 </project>

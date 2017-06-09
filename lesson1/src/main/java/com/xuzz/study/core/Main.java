@@ -1,12 +1,16 @@
 package com.xuzz.study.core;
 
+import com.hxtx.core.configuration.ConfigUtil;
+import com.hxtx.core.sms.CommonSmsUtils;
 import com.sun.deploy.util.StringUtils;
 import com.xuzz.study.algorithm.sorts.InsertSort;
 import com.xuzz.study.algorithm.sorts.QuickSort;
 import com.xuzz.study.algorithm.sorts.SelectSort;
+import com.xuzz.study.algorithm.tree.BinaryTree;
 import com.xuzz.study.annotation.Apple;
 import com.xuzz.study.annotation.FruitInfoUtil;
 import com.xuzz.study.aop01.AopMath;
+import com.xuzz.study.classloader.BasicClassLoaderTest;
 import com.xuzz.study.io.EnumTest;
 import com.xuzz.study.net.URLDecoderTest;
 import com.xuzz.study.nio.BasicBuffer;
@@ -153,10 +157,28 @@ public class Main {
 //
 //       System.out.println(compareDate(d1,d2));
 
-        new HelloServer().startListening();
-        new HelloClient().connect();
+//        new HelloServer().startListening();
+//        new HelloClient().connect();
+//      CommonSmsUtils.sendRegInitPasswd("18583391706","123abcxxy456");
+//        String x = ConfigUtil.getServerConfig().getString("ad");
+//        System.out.println(x);
+//        System.in.read();
+//        if(System.in.read()!=102)
+//        {
+//            x = ConfigUtil.getServerConfig().getString("ad");
+//            System.out.println(x);
+//        }
+//        System.in.read();
 
+//        BasicClassLoaderTest.run();
+
+        BinaryTree bt = new BinaryTree();
+        bt.createBinaryTree();
+        bt.levelOrder(bt.root);
+//        bt.preOrder(bt.root);
+       bt.zigzagLevelOrder(bt.root);
     }
+
 
     public static int compareDate(String DATE1, String DATE2) {
          DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

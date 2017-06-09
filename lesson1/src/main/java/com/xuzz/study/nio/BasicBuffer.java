@@ -6,6 +6,7 @@ import java.io.RandomAccessFile;
 import java.net.URL;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.util.RandomAccess;
 
 /**
  * Created by xuzz on 2017/4/5.
@@ -55,5 +56,19 @@ public class BasicBuffer {
             channel.write(writeBuffer);
         }
         file.close();
+
+        RandomAccessFile  f = new RandomAccessFile("data/nio-data.txt","rw");
+        FileChannel fileChannel=f.getChannel();
+        ByteBuffer bb = ByteBuffer.allocate(48);
+        int byteReaded = fileChannel.read(bb);
+        while(byteReaded!=-1)
+        {
+            bb.flip();
+            while(bb.hasRemaining()) {
+             System.out.println((char) bb.get());
+            }
+            bb.clear();
+            byteReaded=fileChannel.read(bb);
+        }
     }
 }
