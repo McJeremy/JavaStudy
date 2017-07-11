@@ -23,9 +23,12 @@ import com.xuzz.study.util.MathUtil;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.math.RoundingMode;
+import java.security.MessageDigest;
 import java.text.*;
 import java.util.Calendar;
 import java.util.Date;
@@ -172,13 +175,19 @@ public class Main {
 
 //        BasicClassLoaderTest.run();
 
-        BinaryTree bt = new BinaryTree();
+       /* BinaryTree bt = new BinaryTree();
         bt.createBinaryTree();
         bt.levelOrder(bt.root);
 //        bt.preOrder(bt.root);
-       bt.zigzagLevelOrder(bt.root);
-    }
+       bt.zigzagLevelOrder(bt.root);*/
 
+        String name="理想";
+        System.out.println(name.getBytes("UTF-8"));
+        System.out.println(name.getBytes("GBK").toString());
+//        md.update(name.getBytes("UTF-8"));
+
+
+    }
 
     public static int compareDate(String DATE1, String DATE2) {
          DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
