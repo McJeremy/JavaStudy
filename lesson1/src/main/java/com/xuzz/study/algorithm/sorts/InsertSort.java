@@ -20,5 +20,21 @@ public class InsertSort extends SortBase {
             }
             toSortArray[j+1]=tmp;
         }
+
+		//另外一种写法：
+		for(int k=1;k<arr.length;k++)
+        {
+            if(arr[k]<arr[k-1])   //如果k>=k-1,那就不用排，直接进行下一个元素
+            {
+                int m = k-1;
+                int x = arr[k];   //把需要排序的存起来
+                while(m>=0 && x<arr[m])   //如果已排序的表中元素比x大,那么就挪位置
+                {
+                    arr[m+1]=arr[m];
+                    m--;
+                }
+                arr[m+1]=x;
+            }
+        }
     }
 }
